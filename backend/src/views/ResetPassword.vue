@@ -1,25 +1,21 @@
 <template>
-   <div class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div class="w-full max-w-md space-y-8">
-      <div>
-        <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Set new password</h2>
-      </div>
+    <GuestLayout title="Set new password">
       <form class="mt-8 space-y-6" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />
         <div class="-space-y-px rounded-md shadow-sm">
           <div>
             <label for="new-password" class="sr-only">New Password</label>
-            <input id="new-password" name="new-password" type="password" autocomplete="new-password" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="New Password" />
+            <input id="new-password" name="new-password" type="password" required="" class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="New Password" />
           </div>
           <div>
             <label for="repeat-password" class="sr-only">Repeat Password</label>
-            <input id="repeat-password" name="repeat-password" type="password" autocomplete="repeat-password" required="" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Repeat Password" />
+            <input id="repeat-password" name="repeat-password" type="password" required="" class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Repeat Password" />
           </div>
         </div>
 
         <div class="flex items-center justify-between">
           <div class="text-sm">
-            <a href="/login" class="font-medium text-indigo-600 hover:text-indigo-500">Go back to login</a>
+            <router-link :to="{name:'login'}" class="font-medium text-indigo-600 hover:text-indigo-500">Go back to login</router-link>
           </div>
         </div>
 
@@ -32,14 +28,18 @@
           </button>
         </div>
       </form>
-    </div>
-  </div>
+    </GuestLayout>
 </template>
 
 <script>
 import { LockClosedIcon } from '@heroicons/vue/20/solid'
+import GuestLayout from "../components/GuestLayout.vue"
+
 export default {
   name: "ResetPassword",
+  components: {
+    LockClosedIcon, GuestLayout
+  },
   
   mounted() {
     console.log('Reset Password...');

@@ -16,16 +16,22 @@ const routes = [ // Where routes are defined
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: Login,
+        meta: {
+            requiresGuest: true
+        }
     },
     {
         path: '/request-password',
-        name: 'request-password',
-        component: RequestPassword
+        name: 'requestPassword',
+        component: RequestPassword,
+        meta: {
+            requiresGuest: true
+        }
     },
     {
-        path: '/reset-password/token',
-        name: 'reset-password',
+        path: '/reset-password/:token',
+        name: 'resetPassword',
         component: ResetPassword
     },
 ];
