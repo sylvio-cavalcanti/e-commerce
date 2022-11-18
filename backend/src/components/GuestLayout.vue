@@ -6,6 +6,7 @@
           {{title}}
         </h2>
       </div>
+      <!-- For GuestLayout we'll only have 3 views: Login, RequestPassWord and ResetPassword -->
       <slot></slot>
     </div>
   </div>
