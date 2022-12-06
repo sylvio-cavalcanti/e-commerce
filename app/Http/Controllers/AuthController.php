@@ -4,11 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Sanctum\PersonalAccessToken;
-use Laravel\Sanctum\Sanctum;
-use Laravel\Sanctum\HasApiTokens;
-
-
 
 class AuthController extends Controller
 {
@@ -29,9 +24,8 @@ class AuthController extends Controller
 
         // Login attempt was successful
 
-        /** @var \App\Models\MyUserModel $user **/
+        /** @var \App\Models\User $user **/
         $user = Auth::user();
-
         if (!$user->is_admin) {
             // Check if the user is NOT Admin
             Auth::logout();
@@ -51,7 +45,8 @@ class AuthController extends Controller
 
     public function logout() {
         $user = Auth::user();
-        /** @var \App\Models\MyUserModel $user **/
+        /** @var \App\Models\User $user **/
+        $user = Auth::user();
         $user->currentAccessToken()->delete();
         return response('', 204); // Everything occurred successfully
     }

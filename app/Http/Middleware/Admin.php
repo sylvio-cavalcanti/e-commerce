@@ -17,7 +17,7 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->is_admin = 1) { // If the authenticated user is an Admin
+        if (Auth::user() && Auth::user()->is_admin == 1) { // If the authenticated user is an Admin
             return $next($request); // Allows the user to proceed 
         }
 
